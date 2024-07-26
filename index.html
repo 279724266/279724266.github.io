@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💝永远在一起💝</title>
+    <style>
+        body {
+            background-color: #f4e8f1;
+            background-image: url("1.jpeg");
+            background-position: center 0px;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            overflow-y: hidden;
+            overflow-x: hidden;
+            height: 100vh;
+        }
+
+        span {
+            position: absolute;
+            top: 30%;
+            left: 40%;
+            font-size: 100px;
+        }
+
+        .bottom {
+            padding-left: 20px;
+            padding-top: 20px;
+        }
+
+        .bottom p {
+            color: pink;
+            font-size: 25px;
+            font-weight: 800;
+        }
+    </style>
+</head>
+
+<body>
+
+    <audio id="wer">
+        <source src="1.mp3">
+    </audio>
+    <div class="bottom">
+        <p>爱你</p>
+        <p>Forever</p>
+    </div>
+
+
+    <script>
+        for (let i = 0; i < 50; i++) {
+            let xin = document.createElement("span")
+
+            xin.style.left = Math.round(Math.random() * 100) + "%"
+            xin.style.fontSize = Math.round(Math.random() * 80) + "px"
+            xin.innerHTML = "💖"
+            document.body.appendChild(xin)
+
+
+            let top = Math.round(Math.random() * 100) - 100
+            let i = top
+            setInterval(function () {
+                if (i > 100) {
+                    i = top
+                }
+                i += 0.1
+                xin.style.top = i + "%"
+
+            }, 5)
+        }
+
+
+
+        function toggleSound() {
+            let music = document.querySelector("audio")
+            // console.log(music)
+            // console.log(music.paused)
+            if (music.paused) {
+                // music.paused = false
+                music.play()
+            }
+        }
+        setInterval(toggleSound, 1000)
+
+
+
+        const judgeDeviceType =
+            () => /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|OperaMini/i.test(navigator.userAgent) ? 'Mobile' : 'PC';
+        judgeDeviceType()
+        if (judgeDeviceType() === "PC") {
+            alert("请用手机浏览器打开此页面")
+            location.href = ""
+        }
+
+        console.log("Forever");
+
+
+        function disableScroll() {
+            document.addEventListener('scroll', preventScroll);
+        }
+
+        function enableScroll() {
+            document.removeEventListener('scroll', preventScroll);
+        }
+
+        function preventScroll(event) {
+            event.preventDefault();
+        }
+
+        // 禁用滚动
+        disableScroll();
+
+        // 启用滚动
+        // enableScroll();
+
+    </script>
+</body>
+
+</html>
